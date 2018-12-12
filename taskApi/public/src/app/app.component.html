@@ -11,6 +11,11 @@
     </form>
   </fieldset>
 
+
+  <app-all-tasks></app-all-tasks>
+
+
+
   <fieldset>
     <legend>Task List</legend>
       <ul *ngFor= "let task of tasks">
@@ -18,20 +23,25 @@
             <form (submit)="removeTask(task._id)">
                 <input type="submit" value="Delete" />
             </form>
+            <!-- <button (click)="taskToEdit(task)">Edit</button> -->
 
 <!-- WORKING HERE -->
-            <form (submit)="edit(task._id)">
-                <input type="text" name="newTask.title" [(ngModel)]='editTask.title' placeholder="{{task.title}}" />
-                <input type="text" name="editTask.description" [(ngModel)]="editTask.description" placeholder="{{ task.description}}" />
-                <input type="submit" value="Edit" />
-            </form>
+        <form (submit)="edit(task._id)">
+            <input type="text" name="editTask.title" [(ngModel)]='editTask.title' placeholder="{{task.title}}" />
+            <input type="text" name="editTask.description" [(ngModel)]="editTask.description" placeholder="{{ task.description}}" />
+            <input type="submit" value="Edit" />
+        </form>
 <!-- WORKING HERE -->
+<!-- <app-edit [blah]="message" *ngIf='BUTTONwasCLICKED' [editTask]=""></app-edit> -->
+
+</li>
+</ul>
+</fieldset>
+
+<app-edit [taskToBeEdit]="golly"></app-edit>
 
 
-        </li>
-      </ul>
-    </fieldset>
-<app-edit></app-edit>
+
 
 
 

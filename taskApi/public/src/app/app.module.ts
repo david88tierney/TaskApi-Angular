@@ -7,11 +7,13 @@ import { HttpService } from './http.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
+import { AllTasksComponent } from './all-tasks/all-tasks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditComponent
+    EditComponent,
+    AllTasksComponent,
   ],
   imports: [
     BrowserModule,

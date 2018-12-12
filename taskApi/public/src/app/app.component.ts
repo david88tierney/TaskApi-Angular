@@ -19,6 +19,9 @@ export class AppComponent implements OnInit {
     'description': ''
   };
 
+  golly: any;
+
+  BUTTONwasCLICKED = false;
 
 
   constructor(private _httpService: HttpService) {
@@ -49,13 +52,16 @@ export class AppComponent implements OnInit {
     });
   }
 
+  // taskToEdit(task_id) {
+  //   this.BUTTONwasCLICKED = true;
+  //   this.taskToEdit
+  // }
+
   edit(task_id) {
-    console.log('EDIT TASK EXECUTED!', task_id);
-    console.log('EDIT TASK EXECUTED!', task_id);
-    console.log('EDIT TASK EXECUTED!', task_id);
     let observable = this._httpService.edit(task_id, this.editTask);
     observable.subscribe( data => {
       console.log(data);
+      this.golly = this.editTask;
       this.getTasksFromService();
       this.editTask = {
         'title': '',

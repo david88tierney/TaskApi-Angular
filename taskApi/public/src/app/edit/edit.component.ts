@@ -7,9 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class EditComponent implements OnInit {
 
+  @Input() taskToBeEdit: any;
+  @Input() message: string;
   constructor() { }
-
-  @Input() taskToEdit: any;
 
   ngOnInit() {
   }
