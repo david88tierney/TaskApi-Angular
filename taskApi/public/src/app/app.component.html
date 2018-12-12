@@ -1,0 +1,39 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>{{ title }}!</h1>
+  <br>
+  <fieldset>
+    <legend>Make a Task</legend>
+    <form (submit)="makeTask()">
+        <input type="text" name="newTask.title" [(ngModel)]='newTask.title' placeholder="title" />
+        <input type="text" name="newTask.description" [(ngModel)]="newTask.description" placeholder="description" />
+      <input type="submit" value="Create Yo Task!" />
+    </form>
+  </fieldset>
+
+  <fieldset>
+    <legend>Task List</legend>
+      <ul *ngFor= "let task of tasks">
+        <li> {{task.title}} ,  {{ task.description}}
+            <form (submit)="removeTask(task._id)">
+                <input type="submit" value="Delete" />
+            </form>
+
+<!-- WORKING HERE -->
+            <form (submit)="edit(task._id)">
+                <input type="text" name="newTask.title" [(ngModel)]='editTask.title' placeholder="{{task.title}}" />
+                <input type="text" name="editTask.description" [(ngModel)]="editTask.description" placeholder="{{ task.description}}" />
+                <input type="submit" value="Edit" />
+            </form>
+<!-- WORKING HERE -->
+
+
+        </li>
+      </ul>
+    </fieldset>
+<app-edit></app-edit>
+
+
+
+</div>
+<router-outlet></router-outlet>

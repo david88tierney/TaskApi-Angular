@@ -1,0 +1,6 @@
+<h1>Hello Edit </h1>
+<form (submit)="edit(task._id)">
+    <input type="text" name="newTask.title" [(ngModel)]='editTask.title' placeholder="{{task.title}}" />
+    <input type="text" name="editTask.description" [(ngModel)]="editTask.description" placeholder="{{ task.description}}" />
+    <input type="submit" value="Edit" />
+</form>
